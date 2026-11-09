@@ -10,13 +10,15 @@ docker compose up --build
 
 Docker Compose starts PostgreSQL, the API and the web app. Admission data is stored in the named `postgres_data` volume and survives container restarts and `docker compose down`. Use `docker compose down -v` only when you want to erase it.
 
-The API accepts a configurable `ConnectionStrings__Default` connection string and `HOLD_DURATION_SECONDS` (default 600). The frontend API address is controlled by `VITE_API_BASE_URL` at build time. The default Docker setup proxies `/api` to the API container.
+Set `DATABASE_URL` to change the PostgreSQL connection string, `HOLD_DURATION_SECONDS` to change the reservation window (default 600), and `VITE_API_BASE_URL` to change the API address baked into the frontend build (default `/api`). The default Docker setup proxies `/api` to the API container. These values can go in a root `.env` file.
 
 ## Run tests
 
 ```sh
 dotnet test backend/SchoolAdmission.Tests/SchoolAdmission.Tests.csproj
 ```
+
+The backend integration tests launch an isolated PostgreSQL container, so Docker must be running. The frontend tests need Node.js and npm.
 
 Frontend checks:
 
