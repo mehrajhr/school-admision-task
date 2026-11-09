@@ -1,6 +1,6 @@
 # School Admission System
 
-A small full-stack admission demo built with .NET 8, PostgreSQL and React. The API is available at `http://localhost:8080`; open the app at `http://localhost:3000`.
+A full-stack admission demo built with .NET 8, PostgreSQL and React, styled with Tailwind CSS and DaisyUI. The API is available at `http://localhost:8080`; open the app at `http://localhost:3000`.
 
 ## Run with Docker
 
